@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de senha forte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <h1 class="titulo">Gerador de senha forte</h1>
+        
+        
+        <div class="botao" id="meuBotao">
+            Clique aqui
+        </div>
+        
+        <input type="text" id="senhaGerada" readonly>
+    </main>
+
+   
+    <script>
+        document.getElementById("meuBotao").addEventListener("click", function() {
+            
+            alert("Botão clicado!");
+            
+          
+            const senha = gerarSenha(12); 
+            document.getElementById("senhaGerada").value = senha;
+        });
+
+        function gerarSenha(tamanho) {
+            const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+            let senha = "";
+            for (let i = 0; i < tamanho; i++) {
+                const randomIndex = Math.floor(Math.random() * caracteres.length);
+                senha += caracteres[randomIndex];
+            }
+            return senha;
+        }
+    </script>
+</body>
+</html>
+
